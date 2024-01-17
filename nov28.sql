@@ -1,34 +1,3 @@
-/*sytaxs for database*/
-CREATE DATABASE  sep_27;
-USE sep_27
-SHOW databases;
-
-CREATE TABLE cosmeticstore(id int,cosmeticname varchar(30), version int,is_access boolean,created_at timestamp,created_by varchar(20),modified_at timestamp,modified_by varchar(10));
- SELECT * FROM  cosmeticstore;
- SELECT id,cosmeticname FROM cosmeticstore;
- 
- /*ALTER  USE FOR REMOVE AND dd the colume*/
- /*alter TABLE cosmeticstore ADD  COLOUM brand varchar(10);*/
- 
- 
- CREATE TABLE car(id int,brand varchar(20));
- SELECT * FROM car;
- ALTER TABLE car ADD COLUMN price double;
-ALTER TABLE car DROP COLUMN brand; 
-SELECT * FROM car;
-RENAME TABLE car TO car_info;
-SELECT * FROM car_info;
-
-CREATE TABLE laptop(id int,brand varchar(20),version double);
-SELECT * FROM laptop;
-ALTER TABLE laptop DROP COLUMN price;/*remove*/
-SELECT * FROM laptop;/*to read or featch the data*/
-RENAME TABLE laptop to Lap;/*rename*/
-SELECT * FROM laptop;
-DESC Lap; /* for multiple rows*/
-
-SELECT * FROM Lap;
-
 CREATE TABLE songs(song_name varchar(20), singer varchar(20), lyricist varchar(20), composer varchar(20), company varchar(20),
 gender varchar(20), duration long, movie varchar(20));
 SELECT * FROM songs;
@@ -139,19 +108,7 @@ UPDATE laptop SET laptop_price=70000,color='blue' WHERE laptop_brand='HP_Pavilli
 UPDATE laptop SET laptop_price=30000, warranty=2,color='red' WHERE laptop_brand='Wings_Nuvobook';
 UPDATE laptop SET warranty=3, lap_storage='1Tb' WHERE laptop_brand='Acer';
 
-DELETE FROM laptop WHERE laptop_brand='Wings_Nuvobook';11
-
-CREATE TABLE product (id int,p_name varchar(20),p_company varchar(20),p_batch varchar(10),price bigint);
-
-
-
-
-SELECT * FROM product ;
-INSERT INTO product values(1,'parleg','parle','p1',20),(2,'GoodDay','Britania','p2',100),
-(3,'Orio','Brirania','p3',30),(4,'bourbun','Nesale','p4',200);
- delete from product where id=1;
- SELECT * FROM product  where id=4 and p_name='bourbun';
-
+DELETE FROM laptop WHERE laptop_brand='Wings_Nuvobook';
 
 
 

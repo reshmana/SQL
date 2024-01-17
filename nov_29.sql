@@ -1,34 +1,3 @@
-/*sytaxs for database*/
-CREATE DATABASE  sep_27;
-USE sep_27
-SHOW databases;
-
-CREATE TABLE cosmeticstore(id int,cosmeticname varchar(30), version int,is_access boolean,created_at timestamp,created_by varchar(20),modified_at timestamp,modified_by varchar(10));
- SELECT * FROM  cosmeticstore;
- SELECT id,cosmeticname FROM cosmeticstore;
- 
- /*ALTER  USE FOR REMOVE AND dd the colume*/
- /*alter TABLE cosmeticstore ADD  COLOUM brand varchar(10);*/
- 
- 
- CREATE TABLE car(id int,brand varchar(20));
- SELECT * FROM car;
- ALTER TABLE car ADD COLUMN price double;
-ALTER TABLE car DROP COLUMN brand; 
-SELECT * FROM car;
-RENAME TABLE car TO car_info;
-SELECT * FROM car_info;
-
-CREATE TABLE laptop(id int,brand varchar(20),version double);
-SELECT * FROM laptop;
-ALTER TABLE laptop DROP COLUMN price;/*remove*/
-SELECT * FROM laptop;/*to read or featch the data*/
-RENAME TABLE laptop to Lap;/*rename*/
-SELECT * FROM laptop;
-DESC Lap; /* for multiple rows*/
-
-SELECT * FROM Lap;
-
 CREATE TABLE songs(song_name varchar(20), singer varchar(20), lyricist varchar(20), composer varchar(20), company varchar(20),
 gender varchar(20), duration long, movie varchar(20));
 SELECT * FROM songs;
@@ -139,23 +108,84 @@ UPDATE laptop SET laptop_price=70000,color='blue' WHERE laptop_brand='HP_Pavilli
 UPDATE laptop SET laptop_price=30000, warranty=2,color='red' WHERE laptop_brand='Wings_Nuvobook';
 UPDATE laptop SET warranty=3, lap_storage='1Tb' WHERE laptop_brand='Acer';
 
-DELETE FROM laptop WHERE laptop_brand='Wings_Nuvobook';11
-
-CREATE TABLE product (id int,p_name varchar(20),p_company varchar(20),p_batch varchar(10),price bigint);
+DELETE FROM laptop WHERE laptop_brand='Wings_Nuvobook';
 
 
-
-
-SELECT * FROM product ;
-INSERT INTO product values(1,'parleg','parle','p1',20),(2,'GoodDay','Britania','p2',100),
-(3,'Orio','Brirania','p3',30),(4,'bourbun','Nesale','p4',200);
- delete from product where id=1;
- SELECT * FROM product  where id=4 and p_name='bourbun';
+SELECT * FROM  laptop;
 
 
 
 
 
+CREATE TABLE product(id int, p_name varchar(20), p_company varchar(20), p_batch varchar(10), price bigint);
+
+SELECT * FROM product;
+
+INSERT INTO product values(1,'Biscuit','Parle','p1',100),(2,'GoodDay','Britania','p2',150),
+(3,'Bourbon','Parle', 'p3',200),(4,'Camera','Canon','p4', 20000),(5,'Biscuit','Parle','p5',2000),(6,'GoodDay','Nestle','p6',3000),(7,'Fan','Usha', 'p7', 5000);
+
+SELECT * FROM product where p_name = 'Biscuit';
+
+AND:
+COND1      COND2     RES
+TRUE       FALSE     FALSE
+FALSE      TRUE      FALSE
+FALSE      FALSE     FALSE
+TRUE       TRUE      TRUE
+
+SELECT * FROM product where p_name = 'Biscuit';
+
+ AND id = 90;
+
+SELECT * FROM product where p_company = 'Parle' AND 
+p_name = 'Biscuit' AND id = 1;
+
+OR: 
+
+COND1      COND2     RES
+TRUE       FALSE     TRUE
+FALSE      TRUE      TRUE
+FALSE      FALSE     FALSE
+TRUE       TRUE      TRUE
+
+
+SELECT * FROM laptop;
+
+SELECT * FROM laptop where laptop_brand = 'DELLG1599'
+ OR graphic_card = 'NON' OR operating_system = 'Windows';
+
+IN:
+
+SELECT * FROM product;
+SELECT * FROM product where id = 1 or id = 30 or id = 5 or id = 6;
+
+IN:
+
+SELECT * FROM product where id IN(1,30,5,6,'Biscuit');
+
+SELECT * FROM product where p_name IN('GoodDay','Camera','Fan');
+
+NOTIN:
+
+SELECT * FROM product;
+
+SELECT * FROM product where id NOT IN(1,2);
+
+SELECT * FROM product where p_batch not in('p4','p5');
+
+UPDATE product set p_batch = 'P10' where p_name = 'Biscuit' and id = 5;
+
+SELECT * FROM mobile;
+
+SELECT * FROM mobile where brand='redmi' and ram=6;
+SELECT * FROM mobile where brand='Pococ55' or ram=6;
+SELECT * FROM mobile where brand IN('iphone12','Realme','OppoA58');
+SELECT * FROM mobile where ram NOT IN(64,6);
+UPDATE mobile SET color='mild_black' where brand='vivot1pro' AND model='V2321';
+
+
+INSERT INTO mobile VALUES('Realme1',19999,8,256,'5000mah','balck','12','RMX3780','india','6');
+DELETE FROM mobile WHERE brand='Realme1' and color='balck';
 
 
 
